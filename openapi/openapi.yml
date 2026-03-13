@@ -1,0 +1,240 @@
+openapi: 3.1.0
+info:
+  title: Google Nest Smart Device Management API
+  description: >-
+    The Smart Device Management (SDM) API is a REST API that allows developers to
+    manage Google Nest devices. It provides access to device traits and commands
+    for thermostats, cameras, doorbells, and displays. The API uses a trait-based
+    model where each device exposes traits that describe its capabilities and
+    current state, and accepts commands to change device settings.
+  version: 1.0.0
+  contact:
+    name: Google Nest Device Access
+    url: https://developers.google.com/nest/device-access
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+externalDocs:
+  description: Smart Device Management API Documentation
+  url: https://developers.google.com/nest/device-access/api
+servers:
+  - url: https://smartdevicemanagement.googleapis.com/v1
+    description: Smart Device Management API v1 Server
+tags:
+  - name: Devices
+    description: Manage and control Nest devices
+  - name: Structures
+    description: Manage structures (homes)
+  - name: Rooms
+    description: Manage rooms within structures
+paths:
+  /enterprises/{enterpriseId}/devices:
+    get:
+      operationId: listDevices
+      summary: List Devices
+      description: Lists all authorized devices for the enterprise.
+      tags:
+        - Devices
+      parameters:
+        - name: enterpriseId
+          in: path
+          required: true
+          description: The enterprise (project) ID.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with device list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceListResponse'
+  /enterprises/{enterpriseId}/devices/{deviceId}:
+    get:
+      operationId: getDevice
+      summary: Get Device
+      description: Retrieves a specific device and its traits.
+      tags:
+        - Devices
+      parameters:
+        - name: enterpriseId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: deviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with device details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+  /enterprises/{enterpriseId}/devices/{deviceId}:executeCommand:
+    post:
+      operationId: executeDeviceCommand
+      summary: Execute Device Command
+      description: Executes a command on a device to modify its state.
+      tags:
+        - Devices
+      parameters:
+        - name: enterpriseId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: deviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecuteCommandRequest'
+      responses:
+        '200':
+          description: Command executed successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecuteCommandResponse'
+  /enterprises/{enterpriseId}/structures:
+    get:
+      operationId: listStructures
+      summary: List Structures
+      description: Lists all authorized structures (homes) for the enterprise.
+      tags:
+        - Structures
+      parameters:
+        - name: enterpriseId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with structure list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StructureListResponse'
+  /enterprises/{enterpriseId}/structures/{structureId}/rooms:
+    get:
+      operationId: listRooms
+      summary: List Rooms
+      description: Lists all rooms within a structure.
+      tags:
+        - Rooms
+      parameters:
+        - name: enterpriseId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: structureId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with room list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomListResponse'
+components:
+  schemas:
+    Device:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Resource name of the device.
+        type:
+          type: string
+          description: Device type (e.g., sdm.devices.types.THERMOSTAT).
+        traits:
+          type: object
+          additionalProperties: true
+          description: Map of trait names to their current values.
+        parentRelations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParentRelation'
+    ParentRelation:
+      type: object
+      properties:
+        parent:
+          type: string
+          description: Resource name of the parent (structure or room).
+        displayName:
+          type: string
+          description: Display name of the parent.
+    DeviceListResponse:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Device'
+    Structure:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Resource name of the structure.
+        traits:
+          type: object
+          additionalProperties: true
+          description: Map of trait names to their current values.
+    StructureListResponse:
+      type: object
+      properties:
+        structures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Structure'
+    Room:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Resource name of the room.
+        traits:
+          type: object
+          additionalProperties: true
+          description: Map of trait names to their current values.
+    RoomListResponse:
+      type: object
+      properties:
+        rooms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Room'
+    ExecuteCommandRequest:
+      type: object
+      required:
+        - command
+      properties:
+        command:
+          type: string
+          description: The command to execute (e.g., sdm.devices.commands.ThermostatMode.SetMode).
+        params:
+          type: object
+          additionalProperties: true
+          description: Parameters for the command.
+    ExecuteCommandResponse:
+      type: object
+      properties:
+        results:
+          type: object
+          additionalProperties: true
+          description: Command execution results.

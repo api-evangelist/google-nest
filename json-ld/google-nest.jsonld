@@ -1,0 +1,40 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "sdm": "https://developers.google.com/nest/device-access/api#",
+    "Device": {
+      "@id": "sdm:Device"
+    },
+    "Structure": {
+      "@id": "sdm:Structure"
+    },
+    "Room": {
+      "@id": "sdm:Room"
+    },
+    "deviceType": {
+      "@id": "sdm:type",
+      "@type": "xsd:string"
+    },
+    "traits": {
+      "@id": "sdm:traits",
+      "@type": "@json"
+    },
+    "parentRelations": {
+      "@id": "sdm:parentRelations",
+      "@container": "@list"
+    },
+    "command": {
+      "@id": "sdm:command",
+      "@type": "xsd:string"
+    },
+    "params": {
+      "@id": "sdm:params",
+      "@type": "@json"
+    },
+    "displayName": {
+      "@id": "https://schema.org/name",
+      "@type": "xsd:string"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}

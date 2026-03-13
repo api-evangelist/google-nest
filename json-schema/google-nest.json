@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json",
+  "title": "Google Nest Smart Device Management API Schema",
+  "description": "JSON Schema for the Google Nest SDM API device, structure, and command objects.",
+  "type": "object",
+  "$defs": {
+    "Device": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Resource name of the device."
+        },
+        "type": {
+          "type": "string",
+          "description": "Device type identifier."
+        },
+        "traits": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Map of trait names to their current values."
+        },
+        "parentRelations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ParentRelation"
+          }
+        }
+      }
+    },
+    "ParentRelation": {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "type": "string",
+          "description": "Resource name of the parent."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the parent."
+        }
+      }
+    },
+    "Structure": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Resource name of the structure."
+        },
+        "traits": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Structure traits and values."
+        }
+      }
+    },
+    "Room": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Resource name of the room."
+        },
+        "traits": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Room traits and values."
+        }
+      }
+    },
+    "ExecuteCommandRequest": {
+      "type": "object",
+      "required": ["command"],
+      "properties": {
+        "command": {
+          "type": "string",
+          "description": "The command to execute."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Command parameters."
+        }
+      }
+    }
+  }
+}
