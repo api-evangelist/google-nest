@@ -1,5 +1,5 @@
 aid: google-nest
-name: Google Nest Smart Device Management API
+name: Google Nest Smart Device Management
 description: >-
   The Smart Device Management (SDM) API is a REST API that allows developers to
   manage Google Nest devices including thermostats, cameras, doorbells, and
