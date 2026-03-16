@@ -1,3 +1,4 @@
+aid: google-nest
 name: Google Nest Smart Device Management API
 description: >-
   The Smart Device Management (SDM) API is a REST API that allows developers to
@@ -8,8 +9,9 @@ description: >-
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-03-13'
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+type: Index
 tags:
   - Smart Home
   - IoT
@@ -26,17 +28,35 @@ apis:
     humanURL: https://developers.google.com/nest/device-access
     baseURL: https://smartdevicemanagement.googleapis.com/v1
     properties:
+      - type: Documentation
+        url: https://developers.google.com/nest/device-access/reference/rest
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/openapi/openapi.yml
+      - type: Authentication
+        url: https://developers.google.com/nest/device-access/authorization
+      - type: Getting Started
+        url: https://developers.google.com/nest/device-access/get-started
       - type: JSONSchema
         url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json
       - type: JSONLD
         url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
 common:
-  - type: GettingStarted
-    url: https://developers.google.com/nest/device-access/get-started
-  - type: Pricing
+  - type: Portal
     url: https://developers.google.com/nest/device-access
+  - type: Getting Started
+    url: https://developers.google.com/nest/device-access/get-started
+  - type: Documentation
+    url: https://developers.google.com/nest/device-access
+  - type: Authentication
+    url: https://developers.google.com/nest/device-access/authorization
+  - type: Terms of Service
+    url: https://developers.google.com/terms
+  - type: Privacy Policy
+    url: https://policies.google.com/privacy
+  - type: Status
+    url: https://status.cloud.google.com/
+  - type: Support
+    url: https://developers.google.com/nest/device-access/support
   - type: JSONLD
     url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
 maintainers:
