@@ -23,10 +23,10 @@ servers:
 tags:
   - name: Devices
     description: Manage and control Nest devices
-  - name: Structures
-    description: Manage structures (homes)
   - name: Rooms
     description: Manage rooms within structures
+  - name: Structures
+    description: Manage structures (homes)
 paths:
   /enterprises/{enterpriseId}/devices:
     get:
