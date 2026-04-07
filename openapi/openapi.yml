@@ -31,7 +31,7 @@ paths:
   /enterprises/{enterpriseId}/devices:
     get:
       operationId: listDevices
-      summary: List Devices
+      summary: Google Nest Smart Device Management List Devices
       description: Lists all authorized devices for the enterprise.
       tags:
         - Devices
@@ -52,7 +52,7 @@ paths:
   /enterprises/{enterpriseId}/devices/{deviceId}:
     get:
       operationId: getDevice
-      summary: Get Device
+      summary: Google Nest Smart Device Management Get Device
       description: Retrieves a specific device and its traits.
       tags:
         - Devices
@@ -77,7 +77,7 @@ paths:
   /enterprises/{enterpriseId}/devices/{deviceId}:executeCommand:
     post:
       operationId: executeDeviceCommand
-      summary: Execute Device Command
+      summary: Google Nest Smart Device Management Execute Device Command
       description: Executes a command on a device to modify its state.
       tags:
         - Devices
@@ -108,7 +108,7 @@ paths:
   /enterprises/{enterpriseId}/structures:
     get:
       operationId: listStructures
-      summary: List Structures
+      summary: Google Nest Smart Device Management List Structures
       description: Lists all authorized structures (homes) for the enterprise.
       tags:
         - Structures
@@ -128,7 +128,7 @@ paths:
   /enterprises/{enterpriseId}/structures/{structureId}/rooms:
     get:
       operationId: listRooms
-      summary: List Rooms
+      summary: Google Nest Smart Device Management List Rooms
       description: Lists all rooms within a structure.
       tags:
         - Rooms
