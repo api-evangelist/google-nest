@@ -1,0 +1,288 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Nest Smart Device Management API
+  description: The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It
+    provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based
+    model where each device exposes traits that describe its capabilities and current state, and accepts commands to change
+    device settings.
+  tags:
+  - Google
+  - Nest
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-nest
+    baseUri: https://smartdevicemanagement.googleapis.com/v1
+    description: Google Nest Smart Device Management API HTTP API.
+    resources:
+    - name: enterprises-enterpriseid-devices
+      path: /enterprises/{enterpriseId}/devices
+      operations:
+      - name: listdevices
+        method: GET
+        description: Google Nest Smart Device Management List Devices
+        inputParameters:
+        - name: enterpriseId
+          in: path
+          type: string
+          required: true
+          description: The enterprise (project) ID.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: enterprises-enterpriseid-devices-deviceid
+      path: /enterprises/{enterpriseId}/devices/{deviceId}
+      operations:
+      - name: getdevice
+        method: GET
+        description: Google Nest Smart Device Management Get Device
+        inputParameters:
+        - name: enterpriseId
+          in: path
+          type: string
+          required: true
+        - name: deviceId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: enterprises-enterpriseid-devices-deviceid-execut
+      path: /enterprises/{enterpriseId}/devices/{deviceId}:executeCommand
+      operations:
+      - name: executedevicecommand
+        method: POST
+        description: Google Nest Smart Device Management Execute Device Command
+        inputParameters:
+        - name: enterpriseId
+          in: path
+          type: string
+          required: true
+        - name: deviceId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: enterprises-enterpriseid-structures
+      path: /enterprises/{enterpriseId}/structures
+      operations:
+      - name: liststructures
+        method: GET
+        description: Google Nest Smart Device Management List Structures
+        inputParameters:
+        - name: enterpriseId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: enterprises-enterpriseid-structures-structureid-
+      path: /enterprises/{enterpriseId}/structures/{structureId}/rooms
+      operations:
+      - name: listrooms
+        method: GET
+        description: Google Nest Smart Device Management List Rooms
+        inputParameters:
+        - name: enterpriseId
+          in: path
+          type: string
+          required: true
+        - name: structureId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-nest-rest
+    description: REST adapter for Google Nest Smart Device Management API.
+    resources:
+    - path: /enterprises/{enterpriseId}/devices
+      name: listdevices
+      operations:
+      - method: GET
+        name: listdevices
+        description: Google Nest Smart Device Management List Devices
+        call: google-nest.listdevices
+        with:
+          enterpriseId: rest.enterpriseId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /enterprises/{enterpriseId}/devices/{deviceId}
+      name: getdevice
+      operations:
+      - method: GET
+        name: getdevice
+        description: Google Nest Smart Device Management Get Device
+        call: google-nest.getdevice
+        with:
+          enterpriseId: rest.enterpriseId
+          deviceId: rest.deviceId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /enterprises/{enterpriseId}/devices/{deviceId}:executeCommand
+      name: executedevicecommand
+      operations:
+      - method: POST
+        name: executedevicecommand
+        description: Google Nest Smart Device Management Execute Device Command
+        call: google-nest.executedevicecommand
+        with:
+          enterpriseId: rest.enterpriseId
+          deviceId: rest.deviceId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /enterprises/{enterpriseId}/structures
+      name: liststructures
+      operations:
+      - method: GET
+        name: liststructures
+        description: Google Nest Smart Device Management List Structures
+        call: google-nest.liststructures
+        with:
+          enterpriseId: rest.enterpriseId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /enterprises/{enterpriseId}/structures/{structureId}/rooms
+      name: listrooms
+      operations:
+      - method: GET
+        name: listrooms
+        description: Google Nest Smart Device Management List Rooms
+        call: google-nest.listrooms
+        with:
+          enterpriseId: rest.enterpriseId
+          structureId: rest.structureId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-nest-mcp
+    transport: http
+    description: MCP adapter for Google Nest Smart Device Management API for AI agent use.
+    tools:
+    - name: listdevices
+      description: Google Nest Smart Device Management List Devices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-nest.listdevices
+      with:
+        enterpriseId: tools.enterpriseId
+      inputParameters:
+      - name: enterpriseId
+        type: string
+        description: The enterprise (project) ID.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdevice
+      description: Google Nest Smart Device Management Get Device
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-nest.getdevice
+      with:
+        enterpriseId: tools.enterpriseId
+        deviceId: tools.deviceId
+      inputParameters:
+      - name: enterpriseId
+        type: string
+        description: enterpriseId
+        required: true
+      - name: deviceId
+        type: string
+        description: deviceId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: executedevicecommand
+      description: Google Nest Smart Device Management Execute Device Command
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-nest.executedevicecommand
+      with:
+        enterpriseId: tools.enterpriseId
+        deviceId: tools.deviceId
+      inputParameters:
+      - name: enterpriseId
+        type: string
+        description: enterpriseId
+        required: true
+      - name: deviceId
+        type: string
+        description: deviceId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: liststructures
+      description: Google Nest Smart Device Management List Structures
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-nest.liststructures
+      with:
+        enterpriseId: tools.enterpriseId
+      inputParameters:
+      - name: enterpriseId
+        type: string
+        description: enterpriseId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listrooms
+      description: Google Nest Smart Device Management List Rooms
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-nest.listrooms
+      with:
+        enterpriseId: tools.enterpriseId
+        structureId: tools.structureId
+      inputParameters:
+      - name: enterpriseId
+        type: string
+        description: enterpriseId
+        required: true
+      - name: structureId
+        type: string
+        description: structureId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
