@@ -34,7 +34,7 @@ apis:
         url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/openapi/openapi.yml
       - type: Authentication
         url: https://developers.google.com/nest/device-access/authorization
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.google.com/nest/device-access/get-started
       - type: JSONSchema
         url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json
@@ -43,17 +43,17 @@ apis:
 common:
   - type: Portal
     url: https://developers.google.com/nest/device-access
-  - type: Getting Started
+  - type: GettingStarted
     url: https://developers.google.com/nest/device-access/get-started
   - type: Documentation
     url: https://developers.google.com/nest/device-access
   - type: Authentication
     url: https://developers.google.com/nest/device-access/authorization
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://developers.google.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com/
   - type: Support
     url: https://developers.google.com/nest/device-access/support
