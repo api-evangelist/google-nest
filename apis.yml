@@ -1,64 +1,69 @@
 aid: google-nest
 name: Google Nest Smart Device Management
-description: >-
-  The Smart Device Management (SDM) API is a REST API that allows developers to
-  manage Google Nest devices including thermostats, cameras, doorbells, and
-  displays. It provides access to device traits and commands using a trait-based
-  model, enabling applications to read device state, execute commands to control
-  devices, and manage structures and rooms within a home.
+description: The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices including
+  thermostats, cameras, doorbells, and displays. It provides access to device traits and commands using a trait-based model,
+  enabling applications to read device state, execute commands to control devices, and manage structures and rooms within
+  a home.
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-04-28'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 type: Index
 tags:
-  - Camera
-  - Device Management
-  - Doorbell
-  - Google Nest
-  - IoT
-  - Smart Home
-  - Thermostat
+- Camera
+- Device Management
+- Doorbell
+- Google Nest
+- IoT
+- Smart Home
+- Thermostat
 apis:
-  - name: Google Nest Smart Device Management API
-    description: >-
-      REST API for managing Google Nest devices, structures, and rooms using a
-      trait-based model for reading device state and executing commands.
-    humanURL: https://developers.google.com/nest/device-access
-    baseURL: https://smartdevicemanagement.googleapis.com/v1
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/nest/device-access/reference/rest
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/openapi/openapi.yml
-      - type: Authentication
-        url: https://developers.google.com/nest/device-access/authorization
-      - type: GettingStarted
-        url: https://developers.google.com/nest/device-access/get-started
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json
-      - type: JSONLD
-        url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
-common:
-  - type: Portal
-    url: https://developers.google.com/nest/device-access
-  - type: GettingStarted
-    url: https://developers.google.com/nest/device-access/get-started
+- name: Google Nest Smart Device Management API
+  description: REST API for managing Google Nest devices, structures, and rooms using a trait-based model for reading device
+    state and executing commands.
+  humanURL: https://developers.google.com/nest/device-access
+  baseURL: https://smartdevicemanagement.googleapis.com/v1
+  properties:
   - type: Documentation
-    url: https://developers.google.com/nest/device-access
+    url: https://developers.google.com/nest/device-access/reference/rest
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/openapi/openapi.yml
   - type: Authentication
     url: https://developers.google.com/nest/device-access/authorization
-  - type: TermsOfService
-    url: https://developers.google.com/terms
-  - type: PrivacyPolicy
-    url: https://policies.google.com/privacy
-  - type: StatusPage
-    url: https://status.cloud.google.com/
-  - type: Support
-    url: https://developers.google.com/nest/device-access/support
+  - type: GettingStarted
+    url: https://developers.google.com/nest/device-access/get-started
+  - type: JSONSchema
+    url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json
   - type: JSONLD
     url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
+  - type: NaftikoCapability
+    url: capabilities/openapi-devices.yaml
+  - type: NaftikoCapability
+    url: capabilities/openapi-rooms.yaml
+  - type: NaftikoCapability
+    url: capabilities/openapi-structures.yaml
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/showcase/google-nest
+- type: Portal
+  url: https://developers.google.com/nest/device-access
+- type: GettingStarted
+  url: https://developers.google.com/nest/device-access/get-started
+- type: Documentation
+  url: https://developers.google.com/nest/device-access
+- type: Authentication
+  url: https://developers.google.com/nest/device-access/authorization
+- type: TermsOfService
+  url: https://developers.google.com/terms
+- type: PrivacyPolicy
+  url: https://policies.google.com/privacy
+- type: StatusPage
+  url: https://status.cloud.google.com/
+- type: Support
+  url: https://developers.google.com/nest/device-access/support
+- type: JSONLD
+  url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

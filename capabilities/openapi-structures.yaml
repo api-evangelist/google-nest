@@ -1,0 +1,76 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Nest Smart Device Management API — Structures
+  description: 'Google Nest Smart Device Management API — Structures. 1 operations. Lead operation: Google Nest Smart Device
+    Management List Structures. Self-contained Naftiko capability covering one Google Nest business surface.'
+  tags:
+  - Google Nest
+  - Structures
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_NEST_API_KEY: GOOGLE_NEST_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: openapi-structures
+    baseUri: https://smartdevicemanagement.googleapis.com/v1
+    description: Google Nest Smart Device Management API — Structures business capability. Self-contained, no shared references.
+    resources:
+    - name: enterprises-enterpriseId-structures
+      path: /enterprises/{enterpriseId}/structures
+      operations:
+      - name: liststructures
+        method: GET
+        description: Google Nest Smart Device Management List Structures
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: enterpriseId
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: openapi-structures-rest
+    port: 8080
+    description: REST adapter for Google Nest Smart Device Management API — Structures. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/enterprises/{enterpriseid}/structures
+      name: enterprises-enterpriseid-structures
+      description: REST surface for enterprises-enterpriseId-structures.
+      operations:
+      - method: GET
+        name: liststructures
+        description: Google Nest Smart Device Management List Structures
+        call: openapi-structures.liststructures
+        with:
+          enterpriseId: rest.enterpriseId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: openapi-structures-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Nest Smart Device Management API — Structures. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: google-nest-smart-device-management
+      description: Google Nest Smart Device Management List Structures
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-structures.liststructures
+      with:
+        enterpriseId: tools.enterpriseId
+      outputParameters:
+      - type: object
+        mapping: $.
