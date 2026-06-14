@@ -1,0 +1,578 @@
+# Google Nest Smart Device Management GraphQL Schema
+# Source: https://developers.google.com/nest/device-access/reference/rest/v1/
+# Covers devices, traits, structures, rooms, events, media, schedules, and auth
+
+# -------------------------------------------------------------------
+# Enums
+# -------------------------------------------------------------------
+
+enum DeviceType {
+  THERMOSTAT
+  CAMERA
+  DOORBELL
+  DISPLAY
+  LOCK
+  UNKNOWN
+}
+
+enum ThermostatModeValue {
+  HEAT
+  COOL
+  HEATCOOL
+  OFF
+}
+
+enum HvacStatusValue {
+  HEATING
+  COOLING
+  OFF
+}
+
+enum EcoModeValue {
+  MANUAL_ECO
+  OFF
+}
+
+enum StructureModeValue {
+  AWAY
+  HOME
+  SLEEP
+}
+
+enum LockStateValue {
+  LOCKED
+  UNLOCKED
+  JAMMED
+}
+
+enum StreamProtocol {
+  RTSP
+  WebRTC
+}
+
+enum EventType {
+  MOTION
+  SOUND
+  PERSON
+  DOORBELL_CHIME
+}
+
+enum DisplayRotationValue {
+  ROTATE_0
+  ROTATE_90
+  ROTATE_180
+  ROTATE_270
+}
+
+# -------------------------------------------------------------------
+# Authentication & Project
+# -------------------------------------------------------------------
+
+type APIKey {
+  id: ID!
+  key: String!
+  projectId: String!
+  created: String
+  scopes: [String!]
+}
+
+type OAuthToken {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int
+  refreshToken: String
+  scope: String
+}
+
+type ProjectID {
+  id: ID!
+  displayName: String
+  createTime: String
+  enterprises: [String!]
+}
+
+type Webhook {
+  id: ID!
+  url: String!
+  secret: String
+  events: [EventType!]
+  projectId: String!
+  enabled: Boolean!
+}
+
+# -------------------------------------------------------------------
+# Temperature & Climate
+# -------------------------------------------------------------------
+
+type Temperature {
+  ambientTemperatureCelsius: Float
+  ambientTemperatureFahrenheit: Float
+}
+
+type Humidity {
+  ambientHumidityPercent: Float
+}
+
+type ThermostatSetpoint {
+  heatCelsius: Float
+  coolCelsius: Float
+  heatFahrenheit: Float
+  coolFahrenheit: Float
+}
+
+type ThermostatMode {
+  currentMode: ThermostatModeValue!
+  availableModes: [ThermostatModeValue!]
+}
+
+type HvacStatus {
+  status: HvacStatusValue!
+}
+
+type EcoMode {
+  mode: EcoModeValue!
+  heatCelsius: Float
+  coolCelsius: Float
+}
+
+type ThermostatHvac {
+  status: HvacStatus
+  hvacRunning: Boolean
+}
+
+type ThermostatEco {
+  mode: EcoMode
+  availableModes: [EcoModeValue!]
+  heatCelsius: Float
+  coolCelsius: Float
+}
+
+type Thermostat {
+  mode: ThermostatMode
+  hvac: ThermostatHvac
+  eco: ThermostatEco
+  temperature: Temperature
+  humidity: Humidity
+  setpoint: ThermostatSetpoint
+  connectivityStatus: String
+}
+
+# -------------------------------------------------------------------
+# Camera & Streaming
+# -------------------------------------------------------------------
+
+type VideoStream {
+  rtspUrl: String
+  streamToken: String
+  expiresAt: String
+  protocols: [StreamProtocol!]
+}
+
+type AudioStream {
+  rtspUrl: String
+  streamToken: String
+  codec: String
+}
+
+type CameraStream {
+  id: ID!
+  streamUrls: VideoStream
+  audioStream: AudioStream
+  expiresAt: String
+  token: String
+}
+
+type EventImage {
+  url: String!
+  token: String
+  expiresAt: String
+}
+
+type CameraMotion {
+  eventSessionId: String
+  eventId: String!
+  detectedAt: String
+  eventImage: EventImage
+}
+
+type CameraSound {
+  eventSessionId: String
+  eventId: String!
+  detectedAt: String
+  eventImage: EventImage
+}
+
+type CameraClip {
+  id: ID!
+  url: String!
+  duration: Int
+  startTime: String
+  endTime: String
+  eventTypes: [EventType!]
+}
+
+type CameraEvent {
+  id: ID!
+  type: EventType!
+  sessionId: String
+  detectedAt: String
+  image: EventImage
+  clip: CameraClip
+}
+
+type ContinuousVideoRecording {
+  enabled: Boolean!
+  storagePolicy: String
+  retentionDays: Int
+}
+
+type Camera {
+  liveStream: CameraStream
+  motion: CameraMotion
+  sound: CameraSound
+  clips: [CameraClip!]
+  events: [CameraEvent!]
+  cvr: ContinuousVideoRecording
+  resolution: String
+  supportsNightVision: Boolean
+}
+
+# -------------------------------------------------------------------
+# Display
+# -------------------------------------------------------------------
+
+type DisplayBrightness {
+  brightnessPercent: Float
+}
+
+type DisplayRotation {
+  rotation: DisplayRotationValue!
+}
+
+type DisplayMedia {
+  mediaType: String
+  url: String
+}
+
+type SmartDisplay {
+  id: ID!
+  displayName: String
+  brightness: DisplayBrightness
+  rotation: DisplayRotation
+  media: DisplayMedia
+  volume: Int
+}
+
+type Display {
+  brightness: DisplayBrightness
+  rotation: DisplayRotation
+  media: DisplayMedia
+  smartDisplay: SmartDisplay
+}
+
+# -------------------------------------------------------------------
+# Audio & Volume
+# -------------------------------------------------------------------
+
+type Volume {
+  level: Int
+  muted: Boolean
+}
+
+type AudioRing {
+  enabled: Boolean!
+  volume: Int
+}
+
+type AudioDevice {
+  volume: Volume
+  ring: AudioRing
+}
+
+# -------------------------------------------------------------------
+# Doorbell
+# -------------------------------------------------------------------
+
+type DoorbellChime {
+  enabled: Boolean!
+  volume: Int
+}
+
+type DoorbellPress {
+  eventId: String!
+  pressedAt: String
+  image: EventImage
+}
+
+type DoorBell {
+  chime: DoorbellChime
+  latestPress: DoorbellPress
+  pressHistory: [DoorbellPress!]
+  camera: Camera
+  audio: AudioDevice
+}
+
+# -------------------------------------------------------------------
+# Lock
+# -------------------------------------------------------------------
+
+type AccessCode {
+  id: ID!
+  name: String
+  code: String
+  enabled: Boolean!
+  created: String
+  expires: String
+}
+
+type UnlockHistory {
+  id: ID!
+  unlockedAt: String!
+  method: String
+  accessCodeId: String
+  userId: String
+}
+
+type LockKeypad {
+  enabled: Boolean!
+  pinLength: Int
+}
+
+type LockSecurity {
+  tamperAlert: Boolean
+  lowBattery: Boolean
+  jammed: Boolean
+}
+
+type LockDetails {
+  manufacturer: String
+  model: String
+  firmwareVersion: String
+}
+
+type Lock {
+  state: LockStateValue!
+  details: LockDetails
+  security: LockSecurity
+  keypad: LockKeypad
+  accessCodes: [AccessCode!]
+  unlockHistory: [UnlockHistory!]
+}
+
+# -------------------------------------------------------------------
+# Motion & Presence
+# -------------------------------------------------------------------
+
+type MotionEvent {
+  id: ID!
+  detectedAt: String!
+  zone: String
+  eventImage: EventImage
+}
+
+type PresenceEvent {
+  id: ID!
+  detectedAt: String!
+  presenceType: String
+  zone: String
+}
+
+type Motion {
+  sensitivity: String
+  zones: [String!]
+  lastEvent: MotionEvent
+  events: [MotionEvent!]
+}
+
+type Away {
+  active: Boolean!
+  since: String
+}
+
+type Home {
+  active: Boolean!
+  since: String
+}
+
+type Sleep {
+  active: Boolean!
+  since: String
+}
+
+# -------------------------------------------------------------------
+# Schedule & Energy
+# -------------------------------------------------------------------
+
+type Time {
+  hour: Int!
+  minute: Int!
+  second: Int
+}
+
+type SetpointSchedule {
+  id: ID!
+  name: String
+  heatCelsius: Float
+  coolCelsius: Float
+  startTime: Time
+  days: [String!]
+}
+
+type DeviceSchedule {
+  id: ID!
+  name: String
+  enabled: Boolean!
+  setpoints: [SetpointSchedule!]
+}
+
+type Schedule {
+  id: ID!
+  displayName: String
+  type: String
+  deviceSchedules: [DeviceSchedule!]
+}
+
+type EnergyUsage {
+  deviceId: ID!
+  date: String
+  heatingMinutes: Int
+  coolingMinutes: Int
+  estimatedKwh: Float
+  currency: String
+  estimatedCost: Float
+}
+
+# -------------------------------------------------------------------
+# Structure & Room
+# -------------------------------------------------------------------
+
+type StructureMode {
+  mode: StructureModeValue!
+  availableModes: [StructureModeValue!]
+}
+
+type RoomDetails {
+  id: ID!
+  displayName: String!
+  customName: String
+  type: String
+}
+
+type Room {
+  id: ID!
+  displayName: String!
+  details: RoomDetails
+  devices: [Device!]
+}
+
+type Structure {
+  id: ID!
+  displayName: String!
+  mode: StructureMode
+  rooms: [Room!]
+  devices: [Device!]
+  away: Away
+  home: Home
+  sleep: Sleep
+  presenceEvents: [PresenceEvent!]
+}
+
+# -------------------------------------------------------------------
+# Device (Core)
+# -------------------------------------------------------------------
+
+type DeviceTraits {
+  thermostat: Thermostat
+  camera: Camera
+  doorbell: DoorBell
+  display: Display
+  lock: Lock
+  audio: AudioDevice
+  motion: Motion
+  humidity: Humidity
+  temperature: Temperature
+  connectivity: String
+}
+
+type DeviceDetails {
+  manufacturer: String
+  model: String
+  swVersion: String
+  hwVersion: String
+}
+
+type Device {
+  id: ID!
+  name: String!
+  type: DeviceType!
+  displayName: String
+  details: DeviceDetails
+  traits: DeviceTraits
+  thermostat: Thermostat
+  camera: Camera
+  doorbell: DoorBell
+  display: Display
+  lock: Lock
+  structure: Structure
+  room: Room
+  assignee: String
+  parentRelations: [ParentRelation!]
+}
+
+type ParentRelation {
+  parent: String!
+  displayName: String
+}
+
+# -------------------------------------------------------------------
+# Query, Mutation, Subscription
+# -------------------------------------------------------------------
+
+type Query {
+  devices(projectId: ID!): [Device!]!
+  device(projectId: ID!, deviceId: ID!): Device
+  structures(projectId: ID!): [Structure!]!
+  structure(projectId: ID!, structureId: ID!): Structure
+  rooms(projectId: ID!, structureId: ID!): [Room!]!
+  room(projectId: ID!, structureId: ID!, roomId: ID!): Room
+  cameraStream(projectId: ID!, deviceId: ID!): CameraStream
+  cameraClips(projectId: ID!, deviceId: ID!, limit: Int): [CameraClip!]!
+  cameraEvents(projectId: ID!, deviceId: ID!, limit: Int): [CameraEvent!]!
+  energyUsage(projectId: ID!, deviceId: ID!, startDate: String, endDate: String): [EnergyUsage!]!
+  schedules(projectId: ID!, deviceId: ID!): [Schedule!]!
+  accessCodes(projectId: ID!, deviceId: ID!): [AccessCode!]!
+  unlockHistory(projectId: ID!, deviceId: ID!, limit: Int): [UnlockHistory!]!
+  webhooks(projectId: ID!): [Webhook!]!
+  project(projectId: ID!): ProjectID
+}
+
+type Mutation {
+  setThermostatMode(projectId: ID!, deviceId: ID!, mode: ThermostatModeValue!): Thermostat
+  setThermostatSetpoint(projectId: ID!, deviceId: ID!, heatCelsius: Float, coolCelsius: Float): ThermostatSetpoint
+  setEcoMode(projectId: ID!, deviceId: ID!, mode: EcoModeValue!): EcoMode
+  generateCameraStream(projectId: ID!, deviceId: ID!, protocol: StreamProtocol): CameraStream
+  extendCameraStream(projectId: ID!, deviceId: ID!, streamToken: String!): CameraStream
+  stopCameraStream(projectId: ID!, deviceId: ID!, streamToken: String!): Boolean
+  setDisplayBrightness(projectId: ID!, deviceId: ID!, brightnessPercent: Float!): DisplayBrightness
+  setDisplayRotation(projectId: ID!, deviceId: ID!, rotation: DisplayRotationValue!): DisplayRotation
+  setVolume(projectId: ID!, deviceId: ID!, level: Int!, muted: Boolean): Volume
+  setDoorbellChime(projectId: ID!, deviceId: ID!, enabled: Boolean!, volume: Int): DoorbellChime
+  lockDevice(projectId: ID!, deviceId: ID!): Lock
+  unlockDevice(projectId: ID!, deviceId: ID!): Lock
+  createAccessCode(projectId: ID!, deviceId: ID!, name: String!, code: String!, expires: String): AccessCode
+  deleteAccessCode(projectId: ID!, deviceId: ID!, codeId: ID!): Boolean
+  setStructureMode(projectId: ID!, structureId: ID!, mode: StructureModeValue!): StructureMode
+  createSchedule(projectId: ID!, deviceId: ID!, name: String!, type: String): Schedule
+  deleteSchedule(projectId: ID!, deviceId: ID!, scheduleId: ID!): Boolean
+  registerWebhook(projectId: ID!, url: String!, events: [EventType!]!, secret: String): Webhook
+  deleteWebhook(projectId: ID!, webhookId: ID!): Boolean
+}
+
+type Subscription {
+  deviceEvent(projectId: ID!, deviceId: ID): CameraEvent
+  motionDetected(projectId: ID!, deviceId: ID): MotionEvent
+  doorbellPressed(projectId: ID!, deviceId: ID): DoorbellPress
+  presenceChanged(projectId: ID!, structureId: ID): PresenceEvent
+  lockStateChanged(projectId: ID!, deviceId: ID): Lock
+  thermostatChanged(projectId: ID!, deviceId: ID): Thermostat
+}
