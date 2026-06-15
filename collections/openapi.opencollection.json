@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Nest Smart Device Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management List Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/devices",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path",
+                "description": "The enterprise (project) ID."
+              }
+            ]
+          },
+          "docs": "Lists all authorized devices for the enterprise."
+        },
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management Get Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/devices/:deviceId",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific device and its traits."
+        },
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management Execute Device Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/devices/:deviceId:executeCommand",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Executes a command on a device to modify its state."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Structures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management List Structures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/structures",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists all authorized structures (homes) for the enterprise."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rooms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management List Rooms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/structures/:structureId/rooms",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "structureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists all rooms within a structure."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
