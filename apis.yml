@@ -5,7 +5,7 @@ description: The Smart Device Management (SDM) API is a REST API that allows dev
   It provides access to device traits and commands using a trait-based model, enabling
   applications to read device state, execute commands to control devices, and manage
   structures and rooms within a home.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
