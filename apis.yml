@@ -41,6 +41,10 @@ apis:
   - url: graphql/google-nest-graphql.md
     type: GraphQL
 common:
+- type: VulnerabilityDisclosure
+  url: security/google-nest-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/google-nest-domain-security.yml
 - type: GitHubOrganization
   url: https://github.com/google
 - type: LinkedIn
@@ -63,6 +67,8 @@ common:
   url: https://developers.google.com/nest/device-access/support
 - type: JSONLD
   url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
+- url: https://blog.google/products/google-nest/rss/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
