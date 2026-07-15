@@ -41,6 +41,8 @@ apis:
   - url: graphql/google-nest-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/google-nest-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/google-nest-vulnerability-disclosure.yml
 - type: DomainSecurity
