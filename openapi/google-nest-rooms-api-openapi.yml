@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  title: Google Nest Smart Device Management Devices Rooms API
+  description: The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.
+  version: 1.0.0
+  contact:
+    name: Google Nest Device Access
+    url: https://developers.google.com/nest/device-access
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+servers:
+- url: https://smartdevicemanagement.googleapis.com/v1
+  description: Smart Device Management API v1 Server
+tags:
+- name: Rooms
+  description: Manage rooms within structures
+paths:
+  /enterprises/{enterpriseId}/structures/{structureId}/rooms:
+    get:
+      operationId: listRooms
+      summary: Google Nest Smart Device Management List Rooms
+      description: Lists all rooms within a structure.
+      tags:
+      - Rooms
+      parameters:
+      - name: enterpriseId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: structureId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with room list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomListResponse'
+components:
+  schemas:
+    Room:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Resource name of the room.
+        traits:
+          type: object
+          additionalProperties: true
+          description: Map of trait names to their current values.
+    RoomListResponse:
+      type: object
+      properties:
+        rooms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Room'
+externalDocs:
+  description: Smart Device Management API Documentation
+  url: https://developers.google.com/nest/device-access/api

@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  title: Google Nest Smart Device Management Devices Structures API
+  description: The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.
+  version: 1.0.0
+  contact:
+    name: Google Nest Device Access
+    url: https://developers.google.com/nest/device-access
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+servers:
+- url: https://smartdevicemanagement.googleapis.com/v1
+  description: Smart Device Management API v1 Server
+tags:
+- name: Structures
+  description: Manage structures (homes)
+paths:
+  /enterprises/{enterpriseId}/structures:
+    get:
+      operationId: listStructures
+      summary: Google Nest Smart Device Management List Structures
+      description: Lists all authorized structures (homes) for the enterprise.
+      tags:
+      - Structures
+      parameters:
+      - name: enterpriseId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with structure list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StructureListResponse'
+components:
+  schemas:
+    StructureListResponse:
+      type: object
+      properties:
+        structures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Structure'
+    Structure:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Resource name of the structure.
+        traits:
+          type: object
+          additionalProperties: true
+          description: Map of trait names to their current values.
+externalDocs:
+  description: Smart Device Management API Documentation
+  url: https://developers.google.com/nest/device-access/api
