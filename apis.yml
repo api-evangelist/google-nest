@@ -5,7 +5,19 @@ description: The Smart Device Management (SDM) API is a REST API that allows dev
   It provides access to device traits and commands using a trait-based model, enabling
   applications to read device state, execute commands to control devices, and manage
   structures and rooms within a home.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-nest.png
 url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -20,27 +32,81 @@ tags:
 - Smart Home
 - Thermostat
 apis:
-- name: Google Nest Smart Device Management API
-  description: REST API for managing Google Nest devices, structures, and rooms using
-    a trait-based model for reading device state and executing commands.
+- aid: google-nest:google-nest-devices-api
+  name: Google Nest Smart Device Management Devices API
+  description: Manage and control Nest devices
   humanURL: https://developers.google.com/nest/device-access
   baseURL: https://smartdevicemanagement.googleapis.com/v1
+  tags:
+  - Devices
   properties:
+  - type: OpenAPI
+    url: openapi/google-nest-devices-api-openapi.yml
   - type: Documentation
     url: https://developers.google.com/nest/device-access/reference/rest
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/openapi/openapi.yml
   - type: Authentication
     url: https://developers.google.com/nest/device-access/authorization
   - type: GettingStarted
     url: https://developers.google.com/nest/device-access/get-started
   - type: JSONSchema
-    url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json
   - type: JSONLD
-    url: https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
-  - url: graphql/google-nest-graphql.md
-    type: GraphQL
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
+  - type: GraphQL
+    url: graphql/google-nest-graphql.md
+- aid: google-nest:google-nest-rooms-api
+  name: Google Nest Smart Device Management Rooms API
+  description: Manage rooms within structures
+  humanURL: https://developers.google.com/nest/device-access
+  baseURL: https://smartdevicemanagement.googleapis.com/v1
+  tags:
+  - Rooms
+  properties:
+  - type: OpenAPI
+    url: openapi/google-nest-rooms-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/nest/device-access/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/nest/device-access/authorization
+  - type: GettingStarted
+    url: https://developers.google.com/nest/device-access/get-started
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
+  - type: GraphQL
+    url: graphql/google-nest-graphql.md
+- aid: google-nest:google-nest-structures-api
+  name: Google Nest Smart Device Management Structures API
+  description: Manage structures (homes)
+  humanURL: https://developers.google.com/nest/device-access
+  baseURL: https://smartdevicemanagement.googleapis.com/v1
+  tags:
+  - Structures
+  properties:
+  - type: OpenAPI
+    url: openapi/google-nest-structures-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/nest/device-access/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/nest/device-access/authorization
+  - type: GettingStarted
+    url: https://developers.google.com/nest/device-access/get-started
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-schema/google-nest.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
+  - type: GraphQL
+    url: graphql/google-nest-graphql.md
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/google-nest-smart-device-management/overview
 - type: AgenticAccess
   url: agentic-access/google-nest-agentic-access.yml
 - type: VulnerabilityDisclosure
