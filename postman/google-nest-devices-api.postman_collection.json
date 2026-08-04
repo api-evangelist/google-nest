@@ -1,0 +1,365 @@
+{
+  "info": {
+    "_postman_id": "b4091f5e-f936-4dee-bc92-5e0c6022ed86",
+    "name": "Google Nest Smart Device Management Devices API",
+    "description": "The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.\n\nContact Support:\n Name: Google Nest Device Access",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:49:27.000Z",
+    "updatedAt": "2026-07-28T01:49:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b4091f5e-f936-4dee-bc92-5e0c6022ed86"
+  },
+  "item": [
+    {
+      "name": "enterprises",
+      "item": [
+        {
+          "name": "{enterpriseId}",
+          "item": [
+            {
+              "name": "devices",
+              "item": [
+                {
+                  "name": "{deviceId}",
+                  "item": [
+                    {
+                      "name": "Google Nest Smart Device Management Get Device",
+                      "id": "b99463ac-3042-42fd-b8e6-ad88709eb64f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/enterprises/:enterpriseId/devices/:deviceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "enterprises",
+                            ":enterpriseId",
+                            "devices",
+                            ":deviceId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4b55069d-ea36-4c7e-b3bb-0f9aae637b92",
+                              "key": "enterpriseId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "26572fdb-6bc8-4854-950c-1d6467463dac",
+                              "key": "deviceId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieves a specific device and its traits."
+                      },
+                      "response": [
+                        {
+                          "id": "e26cc40b-f377-4746-b4c6-f24d4ffc1116",
+                          "name": "Successful response with device details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/enterprises/:enterpriseId/devices/:deviceId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "enterprises",
+                                ":enterpriseId",
+                                "devices",
+                                ":deviceId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "enterpriseId"
+                                },
+                                {
+                                  "key": "deviceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"traits\": {\n    \"elit_5\": -69193634.46246658\n  },\n  \"parentRelations\": [\n    {\n      \"parent\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"parent\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:49:27.000Z",
+                          "updatedAt": "2026-07-28T01:49:27.000Z",
+                          "uid": "35240-e26cc40b-f377-4746-b4c6-f24d4ffc1116"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:49:27.000Z",
+                      "updatedAt": "2026-07-28T01:49:27.000Z",
+                      "uid": "35240-b99463ac-3042-42fd-b8e6-ad88709eb64f"
+                    }
+                  ],
+                  "id": "ef4c8e3a-73fa-4c03-ab10-2bef151cc7bc",
+                  "createdAt": "2026-07-28T01:49:27.000Z",
+                  "updatedAt": "2026-07-28T01:49:27.000Z",
+                  "uid": "35240-ef4c8e3a-73fa-4c03-ab10-2bef151cc7bc"
+                },
+                {
+                  "name": "{deviceId}:executeCommand",
+                  "item": [
+                    {
+                      "name": "Google Nest Smart Device Management Execute Device Command",
+                      "id": "178edce5-5dad-4b27-8cea-97df52907782",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"command\": \"<string>\",\n  \"params\": {\n    \"dolore7\": false\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/enterprises/:enterpriseId/devices/{{deviceId}}:executeCommand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "enterprises",
+                            ":enterpriseId",
+                            "devices",
+                            "{{deviceId}}:executeCommand"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f44a4f67-6507-4e95-974a-ac64333de956",
+                              "key": "enterpriseId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Executes a command on a device to modify its state."
+                      },
+                      "response": [
+                        {
+                          "id": "44b6a613-f298-4d83-8e8d-6bdae6637db9",
+                          "name": "Command executed successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"command\": \"<string>\",\n  \"params\": {\n    \"dolore7\": false\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/enterprises/:enterpriseId/devices/{{deviceId}}:executeCommand",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "enterprises",
+                                ":enterpriseId",
+                                "devices",
+                                "{{deviceId}}:executeCommand"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "enterpriseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"results\": {\n    \"velit_2\": -64802603.84297854,\n    \"enim_94\": true\n  }\n}",
+                          "createdAt": "2026-07-28T01:49:27.000Z",
+                          "updatedAt": "2026-07-28T01:49:27.000Z",
+                          "uid": "35240-44b6a613-f298-4d83-8e8d-6bdae6637db9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:49:27.000Z",
+                      "updatedAt": "2026-07-28T01:49:27.000Z",
+                      "uid": "35240-178edce5-5dad-4b27-8cea-97df52907782"
+                    }
+                  ],
+                  "id": "ff104359-e641-4b1c-af49-db919173933c",
+                  "createdAt": "2026-07-28T01:49:27.000Z",
+                  "updatedAt": "2026-07-28T01:49:27.000Z",
+                  "uid": "35240-ff104359-e641-4b1c-af49-db919173933c"
+                },
+                {
+                  "name": "Google Nest Smart Device Management List Devices",
+                  "id": "99cf81f3-fc68-41c0-9451-f8a92ccf298c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/enterprises/:enterpriseId/devices",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "enterprises",
+                        ":enterpriseId",
+                        "devices"
+                      ],
+                      "variable": [
+                        {
+                          "id": "802e146b-87a4-47ac-8fc1-ed14c03f14d2",
+                          "key": "enterpriseId",
+                          "value": "<string>",
+                          "description": "(Required) The enterprise (project) ID."
+                        }
+                      ]
+                    },
+                    "description": "Lists all authorized devices for the enterprise."
+                  },
+                  "response": [
+                    {
+                      "id": "c61afa55-433b-4ac2-bf74-06a10e91de99",
+                      "name": "Successful response with device list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/enterprises/:enterpriseId/devices",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "enterprises",
+                            ":enterpriseId",
+                            "devices"
+                          ],
+                          "variable": [
+                            {
+                              "key": "enterpriseId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"devices\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"traits\": {\n        \"quis9\": 82353868.36665142,\n        \"culpac20\": -32781815.529453605,\n        \"commodo_70c\": true\n      },\n      \"parentRelations\": [\n        {\n          \"parent\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        {\n          \"parent\": \"<string>\",\n          \"displayName\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"traits\": {\n        \"aliqua_b\": -5542133\n      },\n      \"parentRelations\": [\n        {\n          \"parent\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        {\n          \"parent\": \"<string>\",\n          \"displayName\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:49:27.000Z",
+                      "updatedAt": "2026-07-28T01:49:27.000Z",
+                      "uid": "35240-c61afa55-433b-4ac2-bf74-06a10e91de99"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:49:27.000Z",
+                  "updatedAt": "2026-07-28T01:49:27.000Z",
+                  "uid": "35240-99cf81f3-fc68-41c0-9451-f8a92ccf298c"
+                }
+              ],
+              "id": "06846122-d51b-4320-a4f2-f0331dd072d3",
+              "createdAt": "2026-07-28T01:49:27.000Z",
+              "updatedAt": "2026-07-28T01:49:27.000Z",
+              "uid": "35240-06846122-d51b-4320-a4f2-f0331dd072d3"
+            }
+          ],
+          "id": "2eb8a975-f290-4306-a036-af8415eb8940",
+          "createdAt": "2026-07-28T01:49:27.000Z",
+          "updatedAt": "2026-07-28T01:49:27.000Z",
+          "uid": "35240-2eb8a975-f290-4306-a036-af8415eb8940"
+        }
+      ],
+      "id": "06406525-4bcd-4853-99ed-62828a1fa39b",
+      "createdAt": "2026-07-28T01:49:27.000Z",
+      "updatedAt": "2026-07-28T01:49:27.000Z",
+      "uid": "35240-06406525-4bcd-4853-99ed-62828a1fa39b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://smartdevicemanagement.googleapis.com/v1"
+    },
+    {
+      "key": "deviceId",
+      "value": "<string>"
+    }
+  ]
+}

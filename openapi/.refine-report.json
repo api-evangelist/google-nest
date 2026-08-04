@@ -1,0 +1,18 @@
+{
+  "provider": "google-nest",
+  "sources": [
+    "google-nest-devices-api-openapi.yml",
+    "google-nest-rooms-api-openapi.yml",
+    "google-nest-structures-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-nest-devices-api-openapi.yml",
+    "google-nest-rooms-api-openapi.yml",
+    "google-nest-structures-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

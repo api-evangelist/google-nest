@@ -1,0 +1,163 @@
+{
+  "info": {
+    "_postman_id": "de85ffe9-c331-4985-a7fe-31b6e9c3a206",
+    "name": "Google Nest Smart Device Management Devices Rooms API",
+    "description": "The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.\n\nContact Support:\n Name: Google Nest Device Access",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:49:27.000Z",
+    "updatedAt": "2026-07-28T01:49:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-de85ffe9-c331-4985-a7fe-31b6e9c3a206"
+  },
+  "item": [
+    {
+      "name": "enterprises",
+      "item": [
+        {
+          "name": "{enterpriseId}",
+          "item": [
+            {
+              "name": "structures",
+              "item": [
+                {
+                  "name": "{structureId}",
+                  "item": [
+                    {
+                      "name": "rooms",
+                      "item": [
+                        {
+                          "name": "Google Nest Smart Device Management List Rooms",
+                          "id": "27a9fe80-c857-41a3-b5a7-aacf5f6a2dfa",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/enterprises/:enterpriseId/structures/:structureId/rooms",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "enterprises",
+                                ":enterpriseId",
+                                "structures",
+                                ":structureId",
+                                "rooms"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "008bb280-5a7a-4a19-996d-e2078c3788b8",
+                                  "key": "enterpriseId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "dbf9f822-f122-467f-85df-791a94ba4860",
+                                  "key": "structureId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists all rooms within a structure."
+                          },
+                          "response": [
+                            {
+                              "id": "3fd11211-b88a-438d-8302-9018b965b7f9",
+                              "name": "Successful response with room list.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/enterprises/:enterpriseId/structures/:structureId/rooms",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "enterprises",
+                                    ":enterpriseId",
+                                    "structures",
+                                    ":structureId",
+                                    "rooms"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "enterpriseId"
+                                    },
+                                    {
+                                      "key": "structureId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"rooms\": [\n    {\n      \"name\": \"<string>\",\n      \"traits\": {\n        \"velit3cd\": true\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"traits\": {\n        \"proident99\": \"nostrud Ut off\"\n      }\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:49:28.000Z",
+                              "updatedAt": "2026-07-28T01:49:28.000Z",
+                              "uid": "35240-3fd11211-b88a-438d-8302-9018b965b7f9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:49:28.000Z",
+                          "updatedAt": "2026-07-28T01:49:28.000Z",
+                          "uid": "35240-27a9fe80-c857-41a3-b5a7-aacf5f6a2dfa"
+                        }
+                      ],
+                      "id": "304e84fc-db73-4387-9751-89bfa1cd5df1",
+                      "createdAt": "2026-07-28T01:49:28.000Z",
+                      "updatedAt": "2026-07-28T01:49:28.000Z",
+                      "uid": "35240-304e84fc-db73-4387-9751-89bfa1cd5df1"
+                    }
+                  ],
+                  "id": "29b83252-7bfd-4ca2-a429-687b8a2e9f7a",
+                  "createdAt": "2026-07-28T01:49:28.000Z",
+                  "updatedAt": "2026-07-28T01:49:28.000Z",
+                  "uid": "35240-29b83252-7bfd-4ca2-a429-687b8a2e9f7a"
+                }
+              ],
+              "id": "56eba344-d20b-4c97-b06d-92d9edb483fb",
+              "createdAt": "2026-07-28T01:49:28.000Z",
+              "updatedAt": "2026-07-28T01:49:28.000Z",
+              "uid": "35240-56eba344-d20b-4c97-b06d-92d9edb483fb"
+            }
+          ],
+          "id": "33f30168-ee15-417f-8fd0-1f2d43b6ad2e",
+          "createdAt": "2026-07-28T01:49:28.000Z",
+          "updatedAt": "2026-07-28T01:49:28.000Z",
+          "uid": "35240-33f30168-ee15-417f-8fd0-1f2d43b6ad2e"
+        }
+      ],
+      "id": "9c564e3a-5a9e-4f96-8205-cdc8ca7888db",
+      "createdAt": "2026-07-28T01:49:28.000Z",
+      "updatedAt": "2026-07-28T01:49:28.000Z",
+      "uid": "35240-9c564e3a-5a9e-4f96-8205-cdc8ca7888db"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://smartdevicemanagement.googleapis.com/v1"
+    }
+  ]
+}

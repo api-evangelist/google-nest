@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "9f0936fb-1af8-4d3c-9855-bb2585d58c5c",
+    "name": "Google Nest Smart Device Management Devices Structures API",
+    "description": "The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.\n\nContact Support:\n Name: Google Nest Device Access",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:49:54.000Z",
+    "updatedAt": "2026-07-28T01:49:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9f0936fb-1af8-4d3c-9855-bb2585d58c5c"
+  },
+  "item": [
+    {
+      "name": "enterprises",
+      "item": [
+        {
+          "name": "{enterpriseId}",
+          "item": [
+            {
+              "name": "structures",
+              "item": [
+                {
+                  "name": "Google Nest Smart Device Management List Structures",
+                  "id": "59924d32-c4aa-4283-9a31-5f610401b75d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/enterprises/:enterpriseId/structures",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "enterprises",
+                        ":enterpriseId",
+                        "structures"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ef16acdf-bbd2-40e9-a418-e8c6b72f2d76",
+                          "key": "enterpriseId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists all authorized structures (homes) for the enterprise."
+                  },
+                  "response": [
+                    {
+                      "id": "bb266591-b7fa-4a3a-90f6-ded84b874bd7",
+                      "name": "Successful response with structure list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/enterprises/:enterpriseId/structures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "enterprises",
+                            ":enterpriseId",
+                            "structures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "enterpriseId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"structures\": [\n    {\n      \"name\": \"<string>\",\n      \"traits\": {\n        \"cupidatat_4\": false,\n        \"ipsum45\": \"dolore dolor\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"traits\": {\n        \"in_00\": 83427286.08238447\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:49:55.000Z",
+                      "updatedAt": "2026-07-28T01:49:55.000Z",
+                      "uid": "35240-bb266591-b7fa-4a3a-90f6-ded84b874bd7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:49:55.000Z",
+                  "updatedAt": "2026-07-28T01:49:55.000Z",
+                  "uid": "35240-59924d32-c4aa-4283-9a31-5f610401b75d"
+                }
+              ],
+              "id": "4ddbda0d-c533-4485-9a79-1b05ca28151f",
+              "createdAt": "2026-07-28T01:49:55.000Z",
+              "updatedAt": "2026-07-28T01:49:55.000Z",
+              "uid": "35240-4ddbda0d-c533-4485-9a79-1b05ca28151f"
+            }
+          ],
+          "id": "381ae6cc-2352-40f7-ac34-b3df611cc9fd",
+          "createdAt": "2026-07-28T01:49:55.000Z",
+          "updatedAt": "2026-07-28T01:49:55.000Z",
+          "uid": "35240-381ae6cc-2352-40f7-ac34-b3df611cc9fd"
+        }
+      ],
+      "id": "c28f33b3-c0e5-4bc9-940d-e990431b7db9",
+      "createdAt": "2026-07-28T01:49:55.000Z",
+      "updatedAt": "2026-07-28T01:49:55.000Z",
+      "uid": "35240-c28f33b3-c0e5-4bc9-940d-e990431b7db9"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://smartdevicemanagement.googleapis.com/v1"
+    }
+  ]
+}
