@@ -1,0 +1,351 @@
+{
+  "item": [
+    {
+      "id": "8deb0db0-896f-4a4f-b69a-9ccf39129da5",
+      "name": "Devices",
+      "description": {
+        "content": "Manage and control Nest devices",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f5780a37-5b02-4a94-98b1-66094d7826a2",
+          "name": "Google Nest Smart Device Management List Devices",
+          "request": {
+            "name": "Google Nest Smart Device Management List Devices",
+            "description": {
+              "content": "Lists all authorized devices for the enterprise.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enterprises",
+                ":enterpriseId",
+                "devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enterpriseId",
+                  "description": "(Required) The enterprise (project) ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb65099c-0081-4d9e-b8c5-b4f2fa8771ff",
+              "name": "Successful response with device list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enterprises",
+                    ":enterpriseId",
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enterpriseId",
+                      "description": "(Required) The enterprise (project) ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"devices\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"traits\": {\n        \"key_0\": \"string\"\n      },\n      \"parentRelations\": [\n        {\n          \"parent\": \"string\",\n          \"displayName\": \"string\"\n        },\n        {\n          \"parent\": \"string\",\n          \"displayName\": \"string\"\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"traits\": {\n        \"key_0\": 3610.3777014414927\n      },\n      \"parentRelations\": [\n        {\n          \"parent\": \"string\",\n          \"displayName\": \"string\"\n        },\n        {\n          \"parent\": \"string\",\n          \"displayName\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b2700c5-3dd6-4755-a72c-12924f98bbfd",
+          "name": "Google Nest Smart Device Management Get Device",
+          "request": {
+            "name": "Google Nest Smart Device Management Get Device",
+            "description": {
+              "content": "Retrieves a specific device and its traits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enterprises",
+                ":enterpriseId",
+                "devices",
+                ":deviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enterpriseId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a49afc7-39f1-46c9-a3bf-81eec7a86182",
+              "name": "Successful response with device details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enterprises",
+                    ":enterpriseId",
+                    "devices",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enterpriseId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"traits\": {\n    \"key_0\": false,\n    \"key_1\": true\n  },\n  \"parentRelations\": [\n    {\n      \"parent\": \"string\",\n      \"displayName\": \"string\"\n    },\n    {\n      \"parent\": \"string\",\n      \"displayName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80f22668-7083-4b01-b741-f3e9851b4635",
+          "name": "Google Nest Smart Device Management Execute Device Command",
+          "request": {
+            "name": "Google Nest Smart Device Management Execute Device Command",
+            "description": {
+              "content": "Executes a command on a device to modify its state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enterprises",
+                ":enterpriseId",
+                "devices",
+                "{{deviceId}}:executeCommand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enterpriseId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"command\": \"<string>\",\n  \"params\": {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "674ced3d-072b-4b01-9370-5b205744e9b5",
+              "name": "Command executed successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enterprises",
+                    ":enterpriseId",
+                    "devices",
+                    "{{deviceId}}:executeCommand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enterpriseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"command\": \"<string>\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": 2400.3180707105253\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"key_0\": 2641.461989178894,\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://smartdevicemanagement.googleapis.com/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "deviceId"
+    }
+  ],
+  "info": {
+    "_postman_id": "abd30130-fc80-4274-b062-e85c911eed32",
+    "name": "Google Nest Smart Device Management Devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.\n\nContact Support:\n Name: Google Nest Device Access",
+      "type": "text/plain"
+    }
+  }
+}

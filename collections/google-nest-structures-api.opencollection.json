@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Nest Smart Device Management Devices Structures API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Structures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management List Structures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/structures",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists all authorized structures (homes) for the enterprise."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Nest Smart Device Management Devices Rooms API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rooms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management List Rooms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/structures/:structureId/rooms",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "structureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists all rooms within a structure."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

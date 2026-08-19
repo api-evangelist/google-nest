@@ -1,0 +1,122 @@
+{
+  "item": [
+    {
+      "id": "3bab34b4-8514-4626-bc1c-93a52c8805d0",
+      "name": "Structures",
+      "description": {
+        "content": "Manage structures (homes)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "28b665db-6513-4081-905e-aedcdaa38c62",
+          "name": "Google Nest Smart Device Management List Structures",
+          "request": {
+            "name": "Google Nest Smart Device Management List Structures",
+            "description": {
+              "content": "Lists all authorized structures (homes) for the enterprise.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enterprises",
+                ":enterpriseId",
+                "structures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enterpriseId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c48fd8a2-5f10-4f11-a5f8-946bef808a98",
+              "name": "Successful response with structure list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enterprises",
+                    ":enterpriseId",
+                    "structures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enterpriseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"structures\": [\n    {\n      \"name\": \"string\",\n      \"traits\": {\n        \"key_0\": 3124,\n        \"key_1\": 2823,\n        \"key_2\": \"string\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"traits\": {\n        \"key_0\": 7924.808112914871,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": 7426.169576827073\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://smartdevicemanagement.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "89c6d6f0-4641-4d69-9691-97ca4f0bc2b9",
+    "name": "Google Nest Smart Device Management Devices Structures API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.\n\nContact Support:\n Name: Google Nest Device Access",
+      "type": "text/plain"
+    }
+  }
+}

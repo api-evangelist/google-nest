@@ -1,0 +1,140 @@
+{
+  "item": [
+    {
+      "id": "37e946f0-a78f-4cf6-9d38-ea4cf454446a",
+      "name": "Rooms",
+      "description": {
+        "content": "Manage rooms within structures",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ee59281-17d4-49e2-8ec4-08e8af919667",
+          "name": "Google Nest Smart Device Management List Rooms",
+          "request": {
+            "name": "Google Nest Smart Device Management List Rooms",
+            "description": {
+              "content": "Lists all rooms within a structure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enterprises",
+                ":enterpriseId",
+                "structures",
+                ":structureId",
+                "rooms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enterpriseId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "structureId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79fe9d57-bb9d-474d-80fe-d84207162d24",
+              "name": "Successful response with room list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enterprises",
+                    ":enterpriseId",
+                    "structures",
+                    ":structureId",
+                    "rooms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enterpriseId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "structureId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rooms\": [\n    {\n      \"name\": \"string\",\n      \"traits\": {\n        \"key_0\": 1991\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"traits\": {\n        \"key_0\": 5164.917007225827\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://smartdevicemanagement.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a4366175-af5d-41b0-b40b-21ca3c97ea54",
+    "name": "Google Nest Smart Device Management Devices Rooms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.\n\nContact Support:\n Name: Google Nest Device Access",
+      "type": "text/plain"
+    }
+  }
+}

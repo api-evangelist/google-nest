@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Nest Smart Device Management Devices API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management List Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/devices",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path",
+                "description": "The enterprise (project) ID."
+              }
+            ]
+          },
+          "docs": "Lists all authorized devices for the enterprise."
+        },
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management Get Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/devices/:deviceId",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific device and its traits."
+        },
+        {
+          "info": {
+            "name": "Google Nest Smart Device Management Execute Device Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://smartdevicemanagement.googleapis.com/v1/enterprises/:enterpriseId/devices/:deviceId:executeCommand",
+            "params": [
+              {
+                "name": "enterpriseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Executes a command on a device to modify its state."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
