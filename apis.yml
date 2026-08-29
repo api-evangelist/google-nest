@@ -5,6 +5,18 @@ description: The Smart Device Management (SDM) API is a REST API that allows dev
   It provides access to device traits and commands using a trait-based model, enabling
   applications to read device state, execute commands to control devices, and manage
   structures and rooms within a home.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
