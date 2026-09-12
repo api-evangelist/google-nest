@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Nest Smart Device Management Devices API
   description: The Smart Device Management (SDM) API is a REST API that allows developers to manage Google Nest devices. It provides access to device traits and commands for thermostats, cameras, doorbells, and displays. The API uses a trait-based model where each device exposes traits that describe its capabilities and current state, and accepts commands to change device settings.
@@ -95,27 +95,6 @@ paths:
                 $ref: '#/components/schemas/ExecuteCommandResponse'
 components:
   schemas:
-    ExecuteCommandRequest:
-      type: object
-      required:
-      - command
-      properties:
-        command:
-          type: string
-          description: The command to execute (e.g., sdm.devices.commands.ThermostatMode.SetMode).
-        params:
-          type: object
-          additionalProperties: true
-          description: Parameters for the command.
-    ParentRelation:
-      type: object
-      properties:
-        parent:
-          type: string
-          description: Resource name of the parent (structure or room).
-        displayName:
-          type: string
-          description: Display name of the parent.
     Device:
       type: object
       properties:
@@ -133,6 +112,27 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ParentRelation'
+    ParentRelation:
+      type: object
+      properties:
+        parent:
+          type: string
+          description: Resource name of the parent (structure or room).
+        displayName:
+          type: string
+          description: Display name of the parent.
+    ExecuteCommandRequest:
+      type: object
+      required:
+      - command
+      properties:
+        command:
+          type: string
+          description: The command to execute (e.g., sdm.devices.commands.ThermostatMode.SetMode).
+        params:
+          type: object
+          additionalProperties: true
+          description: Parameters for the command.
     DeviceListResponse:
       type: object
       properties:
