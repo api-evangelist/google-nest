@@ -1,9 +1,7 @@
 {
   "provider": "google-nest",
   "sources": [
-    "google-nest-devices-api-openapi.yml",
-    "google-nest-rooms-api-openapi.yml",
-    "google-nest-structures-api-openapi.yml"
+    "_original/openapi.yml"
   ],
   "outputs": [
     "google-nest-devices-api-openapi.yml",
@@ -14,10 +12,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-nest-devices-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-nest-rooms-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-nest-structures-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-nest-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-nest-rooms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-nest-structures-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
