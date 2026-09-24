@@ -66,8 +66,6 @@ apis:
   - type: JSONLD
     url: >-
       https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
-  - type: GraphQL
-    url: graphql/google-nest-graphql.md
 - aid: google-nest:google-nest-rooms-api
   name: Google Nest Smart Device Management Rooms API
   description: Manage rooms within structures
@@ -90,8 +88,6 @@ apis:
   - type: JSONLD
     url: >-
       https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
-  - type: GraphQL
-    url: graphql/google-nest-graphql.md
 - aid: google-nest:google-nest-structures-api
   name: Google Nest Smart Device Management Structures API
   description: Manage structures (homes)
@@ -114,8 +110,6 @@ apis:
   - type: JSONLD
     url: >-
       https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
-  - type: GraphQL
-    url: graphql/google-nest-graphql.md
 common:
 - type: Website
   url: https://www.google.com/
