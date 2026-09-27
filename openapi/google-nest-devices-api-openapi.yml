@@ -121,13 +121,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ParentRelation'
-    DeviceListResponse:
-      type: object
-      properties:
-        devices:
-          type: array
-          items:
-            $ref: '#/components/schemas/Device'
     ExecuteCommandRequest:
       type: object
       required:
@@ -140,6 +133,13 @@ components:
           type: object
           additionalProperties: true
           description: Parameters for the command.
+    DeviceListResponse:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Device'
     ExecuteCommandResponse:
       type: object
       properties:
