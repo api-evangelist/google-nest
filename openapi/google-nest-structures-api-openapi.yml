@@ -38,6 +38,13 @@ paths:
                 $ref: '#/components/schemas/StructureListResponse'
 components:
   schemas:
+    StructureListResponse:
+      type: object
+      properties:
+        structures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Structure'
     Structure:
       type: object
       properties:
@@ -48,13 +55,6 @@ components:
           type: object
           additionalProperties: true
           description: Map of trait names to their current values.
-    StructureListResponse:
-      type: object
-      properties:
-        structures:
-          type: array
-          items:
-            $ref: '#/components/schemas/Structure'
 externalDocs:
   description: Smart Device Management API Documentation
   url: https://developers.google.com/nest/device-access/api

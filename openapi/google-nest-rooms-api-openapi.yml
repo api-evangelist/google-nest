@@ -43,6 +43,13 @@ paths:
                 $ref: '#/components/schemas/RoomListResponse'
 components:
   schemas:
+    RoomListResponse:
+      type: object
+      properties:
+        rooms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Room'
     Room:
       type: object
       properties:
@@ -53,13 +60,6 @@ components:
           type: object
           additionalProperties: true
           description: Map of trait names to their current values.
-    RoomListResponse:
-      type: object
-      properties:
-        rooms:
-          type: array
-          items:
-            $ref: '#/components/schemas/Room'
 externalDocs:
   description: Smart Device Management API Documentation
   url: https://developers.google.com/nest/device-access/api

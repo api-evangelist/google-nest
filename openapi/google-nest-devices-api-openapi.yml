@@ -95,18 +95,29 @@ paths:
                 $ref: '#/components/schemas/ExecuteCommandResponse'
 components:
   schemas:
-    ExecuteCommandRequest:
+    ExecuteCommandResponse:
       type: object
-      required:
-      - command
       properties:
-        command:
-          type: string
-          description: The command to execute (e.g., sdm.devices.commands.ThermostatMode.SetMode).
-        params:
+        results:
           type: object
           additionalProperties: true
-          description: Parameters for the command.
+          description: Command execution results.
+    DeviceListResponse:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Device'
+    ParentRelation:
+      type: object
+      properties:
+        parent:
+          type: string
+          description: Resource name of the parent (structure or room).
+        displayName:
+          type: string
+          description: Display name of the parent.
     Device:
       type: object
       properties:
@@ -124,29 +135,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ParentRelation'
-    DeviceListResponse:
+    ExecuteCommandRequest:
       type: object
+      required:
+      - command
       properties:
-        devices:
-          type: array
-          items:
-            $ref: '#/components/schemas/Device'
-    ExecuteCommandResponse:
-      type: object
-      properties:
-        results:
+        command:
+          type: string
+          description: The command to execute (e.g., sdm.devices.commands.ThermostatMode.SetMode).
+        params:
           type: object
           additionalProperties: true
-          description: Command execution results.
-    ParentRelation:
-      type: object
-      properties:
-        parent:
-          type: string
-          description: Resource name of the parent (structure or room).
-        displayName:
-          type: string
-          description: Display name of the parent.
+          description: Parameters for the command.
 externalDocs:
   description: Smart Device Management API Documentation
   url: https://developers.google.com/nest/device-access/api
