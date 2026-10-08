@@ -111,6 +111,12 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/google-nest/refs/heads/main/json-ld/google-nest.jsonld
 common:
+- type: Plans
+  url: plans/google-nest-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/google-nest-rate-limits.yml
+- type: FinOps
+  url: finops/google-nest-finops.yml
 - type: Website
   url: https://www.google.com/
 - type: PostmanWorkspace
