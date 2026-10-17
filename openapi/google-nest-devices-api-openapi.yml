@@ -118,6 +118,18 @@ components:
         displayName:
           type: string
           description: Display name of the parent.
+    ExecuteCommandRequest:
+      type: object
+      required:
+      - command
+      properties:
+        command:
+          type: string
+          description: The command to execute (e.g., sdm.devices.commands.ThermostatMode.SetMode).
+        params:
+          type: object
+          additionalProperties: true
+          description: Parameters for the command.
     Device:
       type: object
       properties:
@@ -135,18 +147,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ParentRelation'
-    ExecuteCommandRequest:
-      type: object
-      required:
-      - command
-      properties:
-        command:
-          type: string
-          description: The command to execute (e.g., sdm.devices.commands.ThermostatMode.SetMode).
-        params:
-          type: object
-          additionalProperties: true
-          description: Parameters for the command.
 externalDocs:
   description: Smart Device Management API Documentation
   url: https://developers.google.com/nest/device-access/api
